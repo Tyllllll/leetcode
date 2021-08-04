@@ -13,23 +13,26 @@ var makesquare = function (matchsticks) {
     if (res) {
       return
     }
-    if (success === 4) {
+    if (success === 4 && alternative.length === 0) {
       res = true
       return
     }
-    if (i > matchsticks.length) {
+    if (i > alternative.length) {
       return
     }
     if (culLength === sideLenth) {
-      dfs(0, 0, success + 1)
+      dfs(0, 0, alternative, success + 1)
     }
-    if (culLength + matchsticks[i] <= sideLenth) {
-      const [num] = matchsticks.splice(i, 1)
-      dfs(culLength + num, i, success)
-      dfs(culLength, i + 1, success)
+    if (culLength + alternative[i] <= sideLenth) {
+      const newAlternative = alternative.slice()
+      const [num] = newAlternative.splice(i, 1)
+      dfs(culLength + num, i, newAlternative, success)
     }
+    dfs(culLength, i + 1, alternative, success)
   }
-  dfs(0, 0, 0)
+  dfs(0, 0, matchsticks, 0)
   return res
 }
-console.log(makesquare([5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3]))
+console.log(makesquare([1, 1, 2, 2, 2]))
+// console.log(makesquare([3, 3, 3, 3, 4]))
+// console.log(makesquare([5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3]))
