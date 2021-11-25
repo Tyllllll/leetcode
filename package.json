@@ -1,0 +1,10 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Tyllllll/leetcode.git",
+  "author": "Tyllllll <WanghxTyl@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "module"
+}
