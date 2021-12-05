@@ -33,7 +33,7 @@ const printTree = (root) => {
     }
     let str = ''
     for (let i = 0; i < depth; i++) {
-      str += '--'
+      str += '##'
     }
     str += node?.val
     console.log(str)
