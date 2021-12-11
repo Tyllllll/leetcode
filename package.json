@@ -6,5 +6,11 @@
   "author": "Tyllllll <WanghxTyl@outlook.com>",
   "license": "MIT",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.4.4"
+  }
 }
