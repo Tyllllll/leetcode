@@ -1,5 +1,4 @@
-import { generateTree, printTree } from './tree.js'
-
-const tree = generatTree([1, 2, 3, 4])
-console.log(tree)
-printTree(tree)
+const sum = (num1, num2) => {
+  return num1 + num2
+}
+export default sum
