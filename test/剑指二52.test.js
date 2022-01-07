@@ -1,5 +1,5 @@
 import fun from '../src/剑指二52'
-import { generateTree, printTreeToArray } from '../modules/tree.js'
+import { generateTree } from '../modules/tree.js'
 test('用例1', () => {
   const tree = generateTree([5, 3, 6, 2, 4, null, 8, 1, null, null, null, 7, 9])
   const myAns = fun(tree)
