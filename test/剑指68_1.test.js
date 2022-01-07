@@ -8,5 +8,4 @@ test('用例1', () => {
 test('用例2', () => {
   const tree = generateTree([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5])
   expect(fun(tree, tree.left, tree.left.right)).toBe(tree.left)
-  expect(2).toBe(2)
 })
