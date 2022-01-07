@@ -1,4 +1,4 @@
-export { TreeNode, generateTree, printTree }
+export { TreeNode, generateTree, printTree, printTreeToArray }
 
 function TreeNode(val, left, right) {
   this.val = val === undefined ? 0 : val
@@ -41,4 +41,19 @@ const printTree = (root) => {
     dfs(node.right, depth + 1)
   }
   dfs(root, 0)
+}
+
+const printTreeToArray = (tree) => {
+  const res = []
+  const queue = [tree]
+  while (queue.length !== 0) {
+    const node = queue.shift()
+    if (node === null) {
+      res.push(node)
+    } else {
+      res.push(node.val)
+      queue.push(tree.left, tree.right)
+    }
+  }
+  console.log(res)
 }
