@@ -1,12 +1,13 @@
-import { swap } from '../modules/utils'
 function ShellSort(nums) {
-  for (let gap = Math.floor(nums.length / 2); gap > 0; gap = Math.floor(gap / 2)) {
+  for (let gap = nums.length >> 1; gap > 0; gap >>= 1) {
     for (let i = gap; i < nums.length; i++) {
-      for (let j = i; j >= 0; j -= gap) {
-        if (nums[j - gap] > nums[j]) {
-          swap(nums, j, j - gap)
-        }
+      let j = i - gap
+      const curNum = nums[i]
+      while (j >= 0 && nums[j] > curNum) {
+        nums[j + gap] = nums[j]
+        j -= gap
       }
+      nums[j + gap] = curNum
     }
   }
   return nums

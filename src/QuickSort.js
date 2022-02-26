@@ -1,25 +1,26 @@
 import { swap } from '../modules/utils'
 function QuickSort(nums) {
-  const qsort = (nums, low, high) => {
-    if (low > high) {
+  const qsort = (nums, left, right) => {
+    if (left >= right) {
       return
     }
-    let i = low
-    let j = high
+    let i = left
+    let j = right
+    const temp = nums[left]
     while (i < j) {
-      while (nums[low] <= nums[j] && i < j) {
+      while (i < j && nums[j] >= temp) {
         j--
       }
-      while (nums[low] >= nums[i] && i < j) {
+      while (i < j && nums[i] <= temp) {
         i++
       }
       if (i < j) {
         swap(nums, i, j)
       }
     }
-    swap(nums, i, low)
-    qsort(nums, low, i - 1)
-    qsort(nums, i + 1, high)
+    swap(nums, left, i)
+    qsort(nums, left, i)
+    qsort(nums, i + 1, right)
   }
   qsort(nums, 0, nums.length - 1)
   return nums

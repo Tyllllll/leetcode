@@ -1,11 +1,12 @@
-import { swap } from '../modules/utils'
 function InsertSort(nums) {
   for (let i = 1; i < nums.length; i++) {
-    for (let j = i; j > 0; j--) {
-      if (nums[j] < nums[j - 1]) {
-        swap(nums, j, j - 1)
-      }
+    let j = i - 1
+    const curNum = nums[i]
+    while (j >= 0 && nums[j] > curNum) {
+      nums[j + 1] = nums[j]
+      j--
     }
+    nums[j + 1] = curNum
   }
   return nums
 }

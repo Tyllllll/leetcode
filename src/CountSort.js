@@ -1,17 +1,16 @@
 function CountSort(nums) {
   let max = nums[0]
   for (let i = 1; i < nums.length; i++) {
-    const element = nums[i]
-    max = element > max ? element : max
+    max = max < nums[i] ? nums[i] : max
   }
-  const counts = new Array(max + 1).fill(0)
-  nums.forEach((element) => {
-    counts[element]++
+  const count = new Array(max + 1).fill(0)
+  nums.forEach((num) => {
+    count[num]++
   })
-  let index = 0
-  counts.forEach((count, element) => {
-    for (let i = 0; i < count; i++) {
-      nums[index++] = element
+  let i = 0
+  count.forEach((times, num) => {
+    for (let j = 0; j < times; j++) {
+      nums[i++] = num
     }
   })
   return nums

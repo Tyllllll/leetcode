@@ -1,11 +1,10 @@
-import { swap } from '../modules/utils'
 function MergeSort(nums) {
   const merge = (nums, left, right, mid) => {
-    const temp = []
     let i = left
     let j = mid + 1
+    const temp = []
     while (i <= mid && j <= right) {
-      temp.push(nums[i] <= nums[j] ? nums[i++] : nums[j++])
+      temp.push(nums[i] > nums[j] ? nums[j++] : nums[i++])
     }
     while (i <= mid) {
       temp.push(nums[i++])
@@ -23,7 +22,7 @@ function MergeSort(nums) {
     if (left >= right) {
       return
     }
-    const mid = Math.floor((left + right) / 2)
+    const mid = (left + right) >> 1
     msort(nums, left, mid)
     msort(nums, mid + 1, right)
     merge(nums, left, right, mid)

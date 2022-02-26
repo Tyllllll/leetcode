@@ -12,14 +12,15 @@ function BucketSort(nums) {
   }
   const section = (max - min) / (nums.length - 1)
   for (let i = 0; i < nums.length; i++) {
-    const element = nums[i]
-    const index = Math.floor((element - min) / section)
-    bucketList[index].push(element)
+    const count = Math.floor((nums[i] - min) / section)
+    bucketList[count].push(nums[i])
   }
   let index = 0
   bucketList.forEach((bucket) => {
     BubbleSort(bucket)
-    bucket.forEach((value) => (nums[index++] = value))
+    bucket.forEach((value) => {
+      nums[index++] = value
+    })
   })
   return nums
 }

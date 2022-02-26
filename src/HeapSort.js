@@ -7,14 +7,11 @@ function HeapSort(nums) {
   const shiftDown = (index) => {
     const leftIndex = getLeftChildIndex(index)
     const rightIndex = getRightChildIndex(index)
-    if (!isValidIndex(leftIndex) || !isValidIndex(rightIndex)) {
-      return
-    }
-    if (nums[index] < nums[leftIndex]) {
+    if (isValidIndex(leftIndex) && nums[index] < nums[leftIndex]) {
       swap(nums, index, leftIndex)
       shiftDown(leftIndex)
     }
-    if (nums[index] < nums[rightIndex]) {
+    if (isValidIndex(rightIndex) && nums[index] < nums[rightIndex]) {
       swap(nums, index, rightIndex)
       shiftDown(rightIndex)
     }
@@ -23,9 +20,8 @@ function HeapSort(nums) {
   for (let i = nums.length >> 1; i >= 0; i--) {
     shiftDown(i)
   }
-  // 调整
   for (let i = nums.length - 1; i > 0; i--) {
-    swap(nums, 0, i)
+    swap(nums, i, 0)
     len--
     shiftDown(0)
   }

@@ -3,11 +3,9 @@ function SelectSort(nums) {
   for (let i = 0; i < nums.length - 1; i++) {
     let minIndex = i
     for (let j = i + 1; j < nums.length; j++) {
-      if (nums[minIndex] > nums[j]) {
-        minIndex = j
-      }
+      minIndex = nums[minIndex] > nums[j] ? j : minIndex
     }
-    if (minIndex !== i) {
+    if (i !== minIndex) {
       swap(nums, i, minIndex)
     }
   }
